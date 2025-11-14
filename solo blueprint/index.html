@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Navbar</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<link rel="stylesheet" href="./test.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+  <div class="promo-bar">
+    <div class="promo-messages">
+      <div class="promo-item"><i class="fas fa-truck"></i> Countrywide shipping with Paxi</div>
+      <div class="promo-item"><i class="fas fa-gift"></i> 10% off first purchase – use code WELCOME10</div>
+      <div class="promo-item"><i class="fas fa-star"></i> Bet on Yourself and shop now!</div>
+    </div>
+  </div>
+<nav class="navbar">
+  <div class="logo"><img src="./logo.jpeg" alt="solo logo"></div>
+
+  <!-- Hamburger -->
+  <div class="hamburger" id="hamburger">
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <!-- Nav menu -->
+  <ul class="nav-menu" id="nav-menu">
+    <li><a href="#">Home</a></li>
+
+    <!-- ***** SHOP DROPDOWN ***** -->
+<li class="dropdown">
+  <a href="#" class="dropbtn" id="shop-toggle">
+    Shop <i class="fas fa-caret-down"></i>
+  </a>
+  <ul class="dropdown-content" id="shop-dropdown">
+    <li><a href="#">T-shirts</a></li>
+    <li><a href="#">Hoodies</a></li>
+    <li><a href="#"> Accessories</a></li>
+  </ul>
+</li>
+
+    <li><a href="#">About</a></li>
+
+    <li class="search-bar">
+      <input type="text" placeholder="Search...">
+      <i class="fas fa-search"></i>
+    </li>
+  </ul>
+
+  <!-- Icons -->
+  <div class="icons">
+    <i class="fas fa-user" title="Profile"></i>
+    <i class="fas fa-heart" title="Wishlist"></i>
+    <i class="fas fa-shopping-bag" title="Bag"></i>
+  </div>
+</nav>
+
+<section class="hero-banner">
+  <img src="./main.jpeg" alt="Promo Image" class="hero-img">
+
+  <div class="hero-text">
+    <h1>SOLOBLUEPRINT</h1>
+    <p>BET ON YOURSELF</p>
+    <a href="#" class="hero-btn">SHOP NOW</a>
+  </div>
+
+</section>
+
+<section class="Product-section">
+  <h1 style="text-align:center; margin:30px 0; color:#333;">Featured Products</h1>
+
+  <!-- Product Grid / Mobile Carousel -->
+  <div class="product-grid" id="productGrid">
+    <!-- Product 1 -->
+    <div class="product-card" onclick="openModal(0)">
+      <img src="./BOY.jpg" alt="White T-Shirt" class="product-img">
+      <div class="product-info">
+        <div class="product-name">"BOY" Graphic Tee</div>
+        <div class="product-price">R250</div>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-card" onclick="openModal(1)">
+      <img src="./hoodie 1.jpg" alt="White T-Shirt" class="product-img">
+      <div class="product-info">
+        <div class="product-name">Soloblueprint Hoodie</div>
+        <div class="product-price">R300</div>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card" onclick="openModal(2)">
+      <img src="./originals 1.jpg" alt="Black Pants" class="product-img">
+      <div class="product-info">
+        <div class="product-name">Soloblueprint T-shirt</div>
+        <div class="product-price">R250</div>
+      </div>
+    </div>
+
+    
+
+    <!-- Product 4 -->
+    <div class="product-card" onclick="openModal(3)">
+      <img src="./hoodie 3.jpg" alt="Denim Jacket" class="product-img">
+      <div class="product-info">
+        <div class="product-name">Soloblueprint Hoodie</div>
+        <div class="product-price">R300</div>
+
+      </div>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="product-card" onclick="openModal(4)">
+      <img src="./solo graphic.jpg" alt="Denim Jacket" class="product-img">
+      <div class="product-info">
+        <div class="product-name">Solo Graphic Tee</div>
+        <div class="product-price">R250</div>
+  </div>
+
+  <!-- Quick View Modal -->
+  <div class="modal" id="quickViewModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img id="modalImg" class="modal-img" alt="">
+        <button class="close-btn" onclick="closeModal()">X</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-title" id="modalTitle"></div>
+        <div class="modal-price" id="modalPrice"></div>
+
+        <!-- Sizes -->
+        <div class="size-options" id="sizeOptions"></div>
+
+        <!-- Quantity -->
+        <div class="quantity-selector">
+          <button class="qty-btn" onclick="changeQty(-1)">-</button>
+          <input type="text" class="qty-input" id="qtyInput" value="1" readonly>
+          <button class="qty-btn" onclick="changeQty(1)">+</button>
+        </div>
+
+        <!-- Add to Cart -->
+        <button class="add-to-cart-btn" onclick="addToCart()">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<script src="./app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
